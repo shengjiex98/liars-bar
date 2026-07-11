@@ -34,3 +34,6 @@ python3 -m http.server 8377 &   # serve repo root
 - Probes that should hold: Play disabled with 0 selected; Call Liar disabled with no last play;
   selecting a 4th card is ignored (cap 3); help modal opens/closes.
 - Human death → spectator mode (overlays auto-advance after ~2.2s, bots finish the game).
+- Offline tab (`#tabs .tab[data-tab="offline"]`): name setup → "Load the guns" → fire via
+  `#offGrid [data-fire="N"]` (1.2s spin, buttons locked during it). State is `OFF` (global),
+  persisted in localStorage `liarsbar-offline`; reload should restore game view and tab choice.

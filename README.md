@@ -13,6 +13,10 @@ A mobile-friendly web version of the bluffing card game **Liar's Bar** — you a
 - Empty your hand and you're safe for the round. The last player still holding cards must face the gun.
 - **Last one alive wins.**
 
+## Offline mode
+
+Playing in person with real cards? The **🔫 Offline** tab is a gun tracker: enter your group's names and each player gets a six-chamber revolver visualization. When someone loses a challenge, tap **Pull trigger** on their gun — the app tracks spent chambers and odds, and remembers the state if you close the page mid-game.
+
 ## Tech
 
 Plain HTML/CSS/JS — no dependencies, no build step. Deployed to GitHub Pages via GitHub Actions on every push to `main`.
