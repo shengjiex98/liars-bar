@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Liar's Bar</title>
 <meta name="theme-color" content="#17110b">
-<meta name="description" content="Liar's Bar — a bluffing card game of nerve and Russian roulette. Play against three bots.">
+<meta name="description" content="Liar's Bar — a bluffing card game of nerve and Russian roulette. Play against three bots, or track the guns for a game with real cards.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🃏</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -19,30 +19,58 @@
   </div>
 </header>
 
-<section id="opponents"></section>
+<nav id="tabs">
+  <button class="tab active" data-tab="online">🃏 Online</button>
+  <button class="tab" data-tab="offline">🔫 Offline</button>
+</nav>
 
-<section id="tableArea">
-  <div id="felt">
-    <div id="tableCard"></div>
-    <div id="pileInfo"></div>
-    <div id="msg"></div>
-  </div>
-</section>
+<div id="onlineTab">
+  <section id="opponents"></section>
 
-<section id="you">
-  <div id="youInfo"></div>
-  <div id="hand"></div>
-  <div id="actions">
-    <button id="callBtn">🔫 Call Liar!</button>
-    <button id="playBtn">Play</button>
-  </div>
-</section>
+  <section id="tableArea">
+    <div id="felt">
+      <div id="tableCard"></div>
+      <div id="pileInfo"></div>
+      <div id="msg"></div>
+    </div>
+  </section>
 
-<div id="overlay" hidden>
-  <div class="ov-box">
-    <div id="ovContent"></div>
-    <button id="ovBtn">Continue</button>
+  <section id="you">
+    <div id="youInfo"></div>
+    <div id="hand"></div>
+    <div id="actions">
+      <button id="callBtn">🔫 Call Liar!</button>
+      <button id="playBtn">Play</button>
+    </div>
+  </section>
+
+  <div id="overlay" hidden>
+    <div class="ov-box">
+      <div id="ovContent"></div>
+      <button id="ovBtn">Continue</button>
+    </div>
   </div>
+</div>
+
+<div id="offlineTab" hidden>
+  <section id="offSetup">
+    <p class="intro">Playing with real cards? Enter your names — this tab just handles the revolvers.
+      When someone gets caught lying (or calls wrong), tap <b>Pull trigger</b> on their gun.</p>
+    <div id="offNames"></div>
+    <div class="setup-actions">
+      <button class="btn dim" id="offAddBtn">+ Add player</button>
+      <button class="btn gold" id="offStartBtn">Load the guns</button>
+    </div>
+  </section>
+
+  <section id="offGame" hidden>
+    <div id="offBanner"></div>
+    <div id="offGrid"></div>
+    <div class="setup-actions">
+      <button class="btn dim" id="offEditBtn">Edit players</button>
+      <button class="btn gold" id="offResetBtn">Reload guns</button>
+    </div>
+  </section>
 </div>
 
 <div id="helpModal" hidden>
@@ -56,11 +84,13 @@
       <li>The revolver has <b>one bullet in six chambers</b>. Each shot a player survives makes their next one riskier.</li>
       <li>Empty your hand and you're safe for the round. The last player still holding cards must face the gun.</li>
       <li><b>Last one alive wins.</b></li>
+      <li>Playing in person with real cards? The <b>🔫 Offline</b> tab tracks everyone's revolver for you.</li>
     </ul>
     <button id="helpClose">Got it</button>
   </div>
 </div>
 
 <script src="app.js"></script>
+<script src="offline.js"></script>
 </body>
 </html>
