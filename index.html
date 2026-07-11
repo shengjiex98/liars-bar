@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Liar's Bar</title>
+<meta name="theme-color" content="#17110b">
+<meta name="description" content="Liar's Bar — a bluffing card game of nerve and Russian roulette. Play against three bots.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🃏</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🃏 Liar&rsquo;s Bar</h1>
+  <div class="hdr-right">
+    <span id="roundLabel"></span>
+    <button id="helpBtn" aria-label="How to play">?</button>
+  </div>
+</header>
+
+<section id="opponents"></section>
+
+<section id="tableArea">
+  <div id="felt">
+    <div id="tableCard"></div>
+    <div id="pileInfo"></div>
+    <div id="msg"></div>
+  </div>
+</section>
+
+<section id="you">
+  <div id="youInfo"></div>
+  <div id="hand"></div>
+  <div id="actions">
+    <button id="callBtn">🔫 Call Liar!</button>
+    <button id="playBtn">Play</button>
+  </div>
+</section>
+
+<div id="overlay" hidden>
+  <div class="ov-box">
+    <div id="ovContent"></div>
+    <button id="ovBtn">Continue</button>
+  </div>
+</div>
+
+<div id="helpModal" hidden>
+  <div class="ov-box help-box">
+    <h2>How to play</h2>
+    <ul>
+      <li>You and 3 bots each get <b>5 cards</b>. The deck holds 6&nbsp;Queens, 6&nbsp;Kings, 6&nbsp;Aces and 2&nbsp;Jokers (Jokers count as anything).</li>
+      <li>Each round one rank is <b>on the table</b> (e.g. Kings). On your turn, play <b>1–3 cards face-down</b> and claim they're all that rank — truth or lie.</li>
+      <li>Instead of playing, you can <b>call Liar</b> on the previous play. The cards are revealed:
+        if they were all real, <b>you</b> take the gun — if not, the <b>liar</b> does.</li>
+      <li>The revolver has <b>one bullet in six chambers</b>. Each shot a player survives makes their next one riskier.</li>
+      <li>Empty your hand and you're safe for the round. The last player still holding cards must face the gun.</li>
+      <li><b>Last one alive wins.</b></li>
+    </ul>
+    <button id="helpClose">Got it</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
